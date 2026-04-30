@@ -1,59 +1,63 @@
 # Quality Standard — Bheda Nikhilkumar Portfolio
 
-This document defines what makes the repository strong, review-ready, and portfolio-safe.
+This repository has been upgraded from documentation-only to a working static portfolio website with testable data helpers and CI-backed validation.
 
 ## Quality Goals
 
 | Goal | What it means |
 | --- | --- |
-| Clear first impression | README explains purpose, value, workflow, stack, and setup. |
-| Reviewable structure | Architecture, case study, roadmap, and quality docs are easy to find. |
-| Safe collaboration | Issue templates, PR template, security policy, support guide, and code of conduct exist. |
-| Repeatable checks | Repository health workflow validates the professional documentation layer. |
-| Portfolio readiness | A reviewer can understand the project without asking for missing context. |
+| Working portfolio | `index.html` renders a real single-page portfolio experience. |
+| Structured content | Profile, metrics, projects, skills, and timeline live in `src/data.js`. |
+| Testable helpers | Category filtering, search, summaries, stack extraction, and repo labels live in `src/portfolio.js`. |
+| Professional UI | Responsive dark interface with hero, metrics, filters, project cards, skills, timeline, and contact CTA. |
+| CI confidence | App Quality and Repository Health workflows validate app and repository standards. |
 
-## Stack Profile
+## Commands
 
-| Area | Value |
+| Check | Command |
 | --- | --- |
-| Detected stack | Project-specific |
-| Primary language | Project-specific |
-| Topics | personal-website, portfolio, web-app |
+| Start local preview | `npm start` |
+| Run unit tests | `npm test` |
+| Validate project structure | `npm run check` |
+| App CI workflow | `.github/workflows/app-quality.yml` |
+| Repository health workflow | `.github/workflows/repository-health.yml` |
 
-## Recommended Checks
+## Test Coverage Focus
 
-| Check | Command / Location |
-| --- | --- |
-| Repository health | `GitHub Actions → Repository Health workflow` |
+The current tests verify:
 
-## Repository Health Gate
-
-The GitHub Actions workflow `.github/workflows/repository-health.yml` checks that the project has:
-
-- README with a documentation hub.
-- Architecture, case study, roadmap, quality, and review docs.
-- Contribution, security, support, and conduct files.
-- Issue and pull request templates.
-- Clear repository ownership.
+- Project data completeness.
+- GitHub repository link format.
+- Category generation and category filtering.
+- Featured project derivation.
+- Unique stack extraction.
+- Portfolio summary metrics.
+- Search behavior.
+- Clean GitHub repo slug labels.
 
 ## Definition of Strong
 
-A strong repository should be able to answer these questions quickly:
+A strong portfolio change should satisfy:
 
-1. What problem does it solve?
-2. Who is it for?
-3. What is the main workflow?
-4. How is the code/project organized?
-5. How can someone run, review, or extend it?
-6. What is planned next?
-7. How are contributions and security handled?
+- [ ] Project content remains accurate and current.
+- [ ] `npm test` passes.
+- [ ] `npm run check` passes.
+- [ ] Responsive layout works on desktop and mobile.
+- [ ] README and docs match the implemented portfolio.
+- [ ] External links point to real GitHub repositories.
 
-## Continuous Improvement
+## Manual Smoke Test
 
-After every meaningful update:
+1. Run `npm start`.
+2. Open `http://localhost:4174`.
+3. Confirm hero, metrics, project cards, skills, timeline, and contact CTA render.
+4. Filter projects by category.
+5. Open a GitHub project link.
+6. Resize to mobile width and test the menu.
 
-- Update README if the user-facing behavior changes.
-- Update architecture docs if structure changes.
-- Update roadmap when items are completed or reprioritized.
-- Add screenshots or demos when the UI/workflow becomes visually important.
-- Keep commits small and meaningful.
+## CI Expectations
+
+Both workflows should stay green:
+
+- **App Quality:** Node tests and project validation.
+- **Repository Health:** documentation, templates, support, security, and review files.

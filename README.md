@@ -1,11 +1,13 @@
 <div align="center">
 
-# Bheda Nikhilkumar Portfolio
+# Bheda Nikhilkumar Portfolio — Working Portfolio Website
 
-### Personal portfolio website project showcasing profile, projects, and developer work.
+### Responsive developer portfolio website showcasing projects, skills, timeline, and GitHub proof-of-work.
 
-![Status](https://img.shields.io/badge/Status-Portfolio%20Ready-0F172A?style=for-the-badge)
-![Docs](https://img.shields.io/badge/Docs-Pro%20README-2563EB?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Working%20Portfolio-0F172A?style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111827)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![GitHub repo](https://img.shields.io/badge/GitHub-bheda-nikhilkumar-portfolio-0F172A?style=for-the-badge&logo=github)
 ![Documentation](https://img.shields.io/badge/Documentation-Pro%20Level-7C3AED?style=for-the-badge)
 
@@ -15,47 +17,52 @@
 [![Repository Health](https://github.com/bhedanikhilkumar-code/Bheda-Nikhilkumar-portfolio/actions/workflows/repository-health.yml/badge.svg)](https://github.com/bhedanikhilkumar-code/Bheda-Nikhilkumar-portfolio/actions/workflows/repository-health.yml)
 <!-- REPO_HEALTH_BADGE_END -->
 
+<!-- APP_QUALITY_BADGE_START -->
+[![App Quality](https://github.com/bhedanikhilkumar-code/Bheda-Nikhilkumar-portfolio/actions/workflows/app-quality.yml/badge.svg)](https://github.com/bhedanikhilkumar-code/Bheda-Nikhilkumar-portfolio/actions/workflows/app-quality.yml)
+<!-- APP_QUALITY_BADGE_END -->
+
 </div>
 
 ---
 
 ## Executive Overview
 
-Personal portfolio website project showcasing profile, projects, and developer work.
+This repository is now a working **responsive portfolio website** for Nikhil Bheda. It presents a recruiter-friendly hero section, project highlights, skills, timeline, portfolio metrics, and GitHub call-to-action using vanilla HTML, CSS, and JavaScript.
 
-This README is written as a **portfolio-grade project document**: it explains the product idea, technical approach, architecture, workflows, setup process, engineering standards, and future roadmap so a reviewer can understand both the codebase and the thinking behind it.
+The project was upgraded from a documentation-only repository into a runnable static web app with structured portfolio data, pure helper functions, Node.js unit tests, validation scripts, and GitHub Actions quality checks.
 
 ## Product Positioning
 
 | Question | Answer |
 | --- | --- |
 | **Who is it for?** | Users, reviewers, recruiters, and developers who want to understand the project quickly. |
-| **What problem does it solve?** | It turns a practical idea into a structured software project with clear workflows and maintainable implementation direction. |
+| **What problem does it solve?** | It gives reviewers a polished single-page view of projects, strengths, proof-of-work, and GitHub readiness. |
 | **Why it matters?** | The project demonstrates product thinking, stack selection, feature planning, and clean documentation discipline. |
-| **Current focus** | Professional polish, understandable architecture, and portfolio-ready presentation. |
+| **Current focus** | Working portfolio UI, project data model, test coverage, and CI-backed quality checks. |
 
 ## Repository Snapshot
 
 | Area | Details |
 | --- | --- |
 | Visibility | Public portfolio repository |
-| Primary stack | `Project-specific` |
-| Repository topics | `personal-website`, `portfolio`, `web-app` |
-| Useful commands | Documented in setup section |
-| Key dependencies | No dependency manifest detected |
+| Primary stack | `HTML5`, `CSS3`, `Vanilla JavaScript`, `Node.js tests` |
+| Repository topics | `personal-website`, `portfolio`, `web-app`, `vanilla-javascript`, `github-pages` |
+| Useful commands | `npm start`, `npm test`, `npm run check` |
+| Key dependencies | Zero runtime dependencies; Node.js is used for preview, tests, and validation |
 
 ## Topics
 
-`personal-website` · `portfolio` · `web-app`
+`personal-website` · `portfolio` · `web-app` · `vanilla-javascript` · `github-pages`
 
 ## Key Capabilities
 
 | Capability | Description |
 | --- | --- |
-| **Personal brand** | Presents projects, strengths, and engineering focus in a recruiter-friendly format. |
-| **Project storytelling** | Highlights work through outcomes, stack choices, and practical impact. |
-| **Professional polish** | Designed for first impressions with clean sections and visual hierarchy. |
-| **Growth-ready** | Easy to extend as new projects, metrics, and achievements are added. |
+| **Recruiter-ready landing page** | Presents identity, role, strengths, metrics, project highlights, and GitHub CTA. |
+| **Featured Projects** | Highlights mobile, AI, full-stack, productivity, and automation repositories with impact notes. |
+| **Interactive filtering** | Lets visitors filter selected work by category from structured project data. |
+| **Tested data helpers** | Portfolio categories, search, summary, stack extraction, and repo labels are covered by Node tests. |
+| **Professional polish** | Responsive dark UI with strong visual hierarchy, timeline, metrics, and skill cloud. |
 
 <!-- PROJECT_DOCS_HUB_START -->
 
@@ -120,32 +127,52 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    User[User] --> Interface[Project Interface]
-    Interface --> Core[Core Logic]
-    Core --> Data[(Project Data)]
-    Core --> Output[Useful Output]
+    Visitor[Recruiter / Reviewer] --> UI[index.html + styles.css]
+    UI --> App[src/app.js]
+    App --> Data[src/data.js]
+    App --> Helpers[src/portfolio.js]
+    Helpers --> Cards[Project Cards, Filters, Metrics]
+    Tests[Node Test Runner] --> Helpers
 ```
 
 ## Core Workflow
 
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant A as Application
-    participant L as Logic Layer
-    participant D as Data/Device Layer
-    U->>A: Start workflow
-    A->>L: Process request
-    L->>D: Save/update state
-    D-->>L: State/result
-    L-->>A: Return useful result
-    A-->>U: Updated experience
+    participant V as Visitor
+    participant UI as Portfolio UI
+    participant Data as Project Data
+    participant Helper as Portfolio Helpers
+    V->>UI: Open portfolio
+    UI->>Data: Load metrics, skills, timeline, projects
+    UI->>Helper: Build categories and summary
+    Helper-->>UI: Filter-ready portfolio model
+    V->>UI: Select project category
+    UI->>Helper: Filter projects
+    Helper-->>UI: Updated project cards
+    V->>UI: Open GitHub project link
 ```
 
 ## How the Project is Organized
 
 ```text
 Bheda-Nikhilkumar-portfolio/
+├── index.html                         # Portfolio page shell
+├── package.json                       # Node scripts for preview, tests, and validation
+├── src/
+│   ├── app.js                         # DOM rendering, filtering, navigation interactions
+│   ├── data.js                        # Profile, metrics, projects, skills, timeline
+│   ├── portfolio.js                   # Pure helper functions covered by tests
+│   └── styles.css                     # Responsive dark professional UI
+├── tests/
+│   └── portfolio.test.mjs             # Node unit tests for portfolio data/helpers
+├── scripts/
+│   ├── serve.mjs                      # Dependency-free local static server
+│   └── validate-project.mjs           # Project structure and README validation
+├── .github/workflows/
+│   ├── app-quality.yml                # Node test + validation CI
+│   └── repository-health.yml          # Documentation/community health CI
+└── docs/                              # Architecture, case study, roadmap, quality notes
 ```
 
 ## Engineering Notes
@@ -160,10 +187,18 @@ Bheda-Nikhilkumar-portfolio/
 
 ```bash
 # Clone the repository
-git clone <repo-url>
-cd <repo-name>
+git clone https://github.com/bhedanikhilkumar-code/Bheda-Nikhilkumar-portfolio.git
+cd Bheda-Nikhilkumar-portfolio
 
-# Follow the stack-specific setup notes in the source files.
+# Run unit tests
+npm test
+
+# Validate project structure and README details
+npm run check
+
+# Start local preview server
+npm start
+# Open http://localhost:4174
 ```
 
 ## Suggested Quality Checks
@@ -172,11 +207,11 @@ Before shipping or presenting this project, run the checks that match the stack:
 
 | Check | Purpose |
 | --- | --- |
-| Format/lint | Keep code style consistent and reviewer-friendly. |
-| Static analysis | Catch type, syntax, and framework-level issues early. |
-| Unit/widget tests | Validate important logic and user-facing workflows. |
-| Manual smoke test | Confirm the main flow works from start to finish. |
-| README review | Ensure documentation matches the actual repository state. |
+| `npm test` | Runs Node.js unit tests for portfolio data, categories, search, summaries, and repo labels. |
+| `npm run check` | Validates expected app, docs, workflow, and README structure. |
+| GitHub Actions `app-quality.yml` | Runs tests and validation on every push/PR. |
+| GitHub Actions `repository-health.yml` | Checks documentation, templates, and professional repo files. |
+| Manual smoke test | Open local preview, filter projects, inspect responsive layout, and open GitHub links. |
 
 ## Roadmap
 

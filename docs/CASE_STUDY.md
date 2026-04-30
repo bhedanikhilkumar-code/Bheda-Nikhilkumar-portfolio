@@ -2,46 +2,50 @@
 
 ## One-Line Summary
 
-Personal portfolio website project showcasing profile, projects, and developer work.
+A polished single-page developer portfolio that showcases Nikhil Bheda’s strongest project categories, skills, GitHub proof-of-work, and professional presentation layer.
 
-## Product Story
+## Why This Repo Was Weak
 
-This project is presented as more than a code sample. It is documented as a practical product concept with a clear user workflow, technical structure, and future improvement path.
+Before this upgrade, the repository had professional documentation but no actual portfolio app, no package manifest, no tests, and no app-specific CI. It looked clean in README form, but a reviewer would not find a runnable website.
 
-## Problem Framing
+## What Changed
 
-| Area | Notes |
+| Area | Upgrade |
 | --- | --- |
-| User need | A focused tool/workflow that solves a recognizable problem. |
-| Product goal | Make the core workflow understandable, usable, and extensible. |
-| Engineering goal | Keep the structure readable enough for future features and review. |
-| Portfolio goal | Demonstrate practical thinking, stack awareness, and presentation quality. |
+| Product | Added a responsive portfolio website with hero, metrics, projects, skills, timeline, and CTA. |
+| Engineering | Added structured data and pure helper functions for category filtering, search, summaries, and validation. |
+| Quality | Added Node unit tests and project validation. |
+| CI | Added App Quality workflow in addition to Repository Health. |
+| Documentation | Updated README, architecture, quality standard, and roadmap to reflect the real implementation. |
 
-## Key Decisions
+## Product Decisions
 
-- Documented the project with diagrams so reviewers can understand it quickly.
-- Separated the README overview from deeper architecture, roadmap, and case-study notes.
-- Added GitHub community templates to make the repository look maintained and collaboration-ready.
-- Kept future improvements scoped as realistic roadmap items instead of vague promises.
+- **Static-first:** A portfolio should load fast and be easy to host on GitHub Pages.
+- **Zero runtime dependencies:** Keeps setup simple and review-friendly.
+- **Structured data:** Projects and metrics live in `src/data.js`, making future edits clean.
+- **Testable logic:** Helper functions live in `src/portfolio.js`, separate from DOM code.
+- **Recruiter-friendly narrative:** The page highlights outcomes and portfolio signal, not just file names.
 
-## Review Narrative
+## Main Visitor Journey
 
-A reviewer should leave with three impressions:
+1. Visitor lands on the hero section and understands the developer positioning.
+2. Visitor scans portfolio metrics and quality signals.
+3. Visitor filters featured work by category.
+4. Visitor reviews project impact and stack.
+5. Visitor opens GitHub repositories for deeper proof.
+6. Visitor sees the timeline and professional GitHub polish narrative.
 
-1. **The idea is clear** — the repository explains who it is for and why it exists.
-2. **The engineering is intentional** — architecture and workflow are documented.
-3. **The project is maintainable** — contribution, security, and roadmap notes are in place.
+## Portfolio Value
 
-## Impact / Portfolio Value
+This upgrade makes the repository stronger because it now demonstrates:
 
-| Signal | Why it helps GitHub look professional |
-| --- | --- |
-| Strong README | Improves first impression and project clarity. |
-| Architecture docs | Shows system-design thinking. |
-| Case study | Turns a repo into a product story. |
-| Roadmap | Shows direction and ownership. |
-| Issue/PR templates | Makes the repository feel maintained and collaboration-ready. |
+- Real frontend implementation.
+- Strong visual presentation.
+- Product/storytelling awareness.
+- Testable JavaScript architecture.
+- CI-backed quality discipline.
+- A focused career-facing asset rather than a docs-only repository.
 
-## Next Case Study Upgrade
+## Next Strong Upgrade
 
-Add real screenshots, demo links, performance notes, or before/after examples once the project has visual assets or deployed links.
+The next high-impact improvement is GitHub Pages deployment with screenshots and a README demo link. That would turn the project into a live portfolio entry, not just a runnable local app.

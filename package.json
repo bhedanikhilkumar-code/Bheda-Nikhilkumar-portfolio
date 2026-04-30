@@ -1,0 +1,23 @@
+{
+  "name": "bheda-nikhilkumar-portfolio",
+  "version": "1.0.0",
+  "description": "A polished portfolio website for Nikhil Bheda with project highlights, skills, timeline, and recruiter-friendly presentation.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "check": "node scripts/validate-project.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "frontend",
+    "vanilla-javascript",
+    "github-pages"
+  ],
+  "engines": {
+    "node": ">=18"
+  }
+}

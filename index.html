@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio website for Nikhil Bheda — Flutter, full-stack, AI, automation, and polished GitHub project work."
+    />
+    <meta name="theme-color" content="#0f172a" />
+    <title>Nikhil Bheda — Developer Portfolio</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Nikhil Bheda home">
+          <span>NB</span>
+          <strong>Nikhil Bheda</strong>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+        <div class="nav-links" id="nav-links">
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Software Developer · Flutter · Full Stack · AI</p>
+          <h1>Building polished, practical apps with product thinking.</h1>
+          <p class="lead">
+            I create portfolio-ready projects across mobile, web, AI, productivity, and automation — with clean documentation,
+            professional GitHub presentation, and user-focused workflows.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">View featured work</a>
+            <a class="button secondary" href="https://github.com/bhedanikhilkumar-code" target="_blank" rel="noreferrer">GitHub profile</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Portfolio summary">
+          <span class="card-kicker">Portfolio Signal</span>
+          <strong id="project-count">36+</strong>
+          <p>Repositories polished with README docs, architecture notes, roadmap, governance templates, and CI health checks.</p>
+          <div class="signal-grid" id="signal-grid"></div>
+        </aside>
+      </section>
+
+      <section class="stats section-shell" aria-label="Portfolio metrics" id="stats"></section>
+
+      <section class="section-shell section-heading" id="work">
+        <p class="eyebrow">Selected Work</p>
+        <h2>Projects with clear product value</h2>
+        <p>Featured repositories are grouped by impact: mobile apps, AI tools, productivity utilities, automation, and web experiences.</p>
+        <div class="filters" id="project-filters" aria-label="Project filters"></div>
+        <div class="project-grid" id="project-grid"></div>
+      </section>
+
+      <section class="section-shell split-section" id="skills">
+        <div>
+          <p class="eyebrow">Capabilities</p>
+          <h2>Practical stack, strong presentation</h2>
+          <p>
+            The portfolio highlights implementation skills and the professional wrapper around them: docs, CI, review checklists,
+            issue templates, and product storytelling.
+          </p>
+        </div>
+        <div class="skill-cloud" id="skill-cloud"></div>
+      </section>
+
+      <section class="section-shell section-heading" id="timeline">
+        <p class="eyebrow">Build Story</p>
+        <h2>How the portfolio is positioned</h2>
+        <div class="timeline" id="timeline-list"></div>
+      </section>
+
+      <section class="section-shell contact" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Want to review the work?</h2>
+          <p>Start with GitHub — every highlighted repo is documented with architecture, roadmap, quality notes, and health checks.</p>
+        </div>
+        <a class="button primary" href="https://github.com/bhedanikhilkumar-code" target="_blank" rel="noreferrer">Open GitHub</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Nikhil Bheda</span>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

@@ -2,79 +2,97 @@
 
 ## Purpose
 
-Personal portfolio website project showcasing profile, projects, and developer work.
-
-This document explains the project from an engineering-review perspective: layers, workflow, data/state movement, and extension points.
+This repository is a responsive, recruiter-friendly portfolio website for Nikhil Bheda. It presents project highlights, skills, timeline, metrics, and GitHub links through a polished static web experience.
 
 ## System Context
 
 ```mermaid
 flowchart LR
-    User[User / Reviewer] --> Interface[Project Interface]
-    Interface --> Logic[Application Logic]
-    Logic --> Data[Data / Device / File Layer]
-    Logic --> Output[UI, Report, Generated Asset, or Action]
-    Output --> User
+    Visitor[Recruiter / Reviewer] --> UI[Portfolio UI]
+    UI --> App[src/app.js]
+    App --> Data[src/data.js]
+    App --> Helpers[src/portfolio.js]
+    Helpers --> Output[Cards, Filters, Metrics, Timeline]
+    Tests[Node Unit Tests] --> Helpers
 ```
+
+## Runtime Boundaries
+
+| Boundary | Responsibility | Files |
+| --- | --- | --- |
+| Page shell | Semantic sections, navigation, SEO metadata, call-to-action | `index.html` |
+| Styling | Responsive dark UI, cards, grid layouts, mobile navigation | `src/styles.css` |
+| Rendering | Creates metrics, filters, project cards, skill pills, and timeline entries | `src/app.js` |
+| Data model | Profile, metrics, projects, skills, and timeline content | `src/data.js` |
+| Pure helpers | Categories, filtering, search, stack extraction, summaries, validation | `src/portfolio.js` |
+| Quality | Unit tests and structure validation | `tests/`, `scripts/`, GitHub Actions |
 
 ## Primary Workflow
 
 ```mermaid
-flowchart TD
-    A[Visitor opens project] --> B[Scans story and tech stack]
-    B --> C[Reviews proof of work]
-    C --> D[Contacts or explores repos]
-    D --> E[Document, test, and improve]
+sequenceDiagram
+    participant V as Visitor
+    participant UI as Portfolio UI
+    participant Data as Portfolio Data
+    participant Logic as Helper Logic
+    V->>UI: Open portfolio
+    UI->>Data: Load projects, skills, metrics, timeline
+    UI->>Logic: Build categories and summary
+    Logic-->>UI: Render-ready view model
+    V->>UI: Filter selected work by category
+    UI->>Logic: Apply category filter
+    Logic-->>UI: Updated project grid
+    V->>UI: Open GitHub repository link
 ```
 
-## Layered Design
-
-| Layer | Responsibility | Review Focus |
-| --- | --- | --- |
-| Interface | Screens, pages, commands, forms, or hardware entry points | Is the user flow clear and easy to demo? |
-| State / Logic | Validation, calculations, orchestration, and workflow rules | Is behavior predictable and maintainable? |
-| Data / Services | Local storage, API calls, generated files, device APIs, or models | Is data handled safely and consistently? |
-| Presentation | README, diagrams, screenshots, and demo notes | Can someone understand the project quickly? |
-| Quality | Tests, linting, review checklist, and roadmap | Can the project grow without becoming messy? |
-
-## Technology Profile
-
-| Category | Value |
-| --- | --- |
-| Primary stack | Project-specific |
-| Repository type | Public portfolio |
-| GitHub topics | personal-website, portfolio, web-app |
-
-## Data / State Flow
+## Data Model
 
 ```mermaid
-sequenceDiagram
-    participant U as User
-    participant I as Interface
-    participant L as Logic
-    participant D as Data/Device Layer
-    U->>I: Start main workflow
-    I->>L: Send validated intent
-    L->>D: Read/write required state
-    D-->>L: Return result
-    L-->>I: Prepare display/output
-    I-->>U: Show final state
+classDiagram
+    class Project {
+      string title
+      string category
+      string description
+      string[] stack
+      string repo
+      string impact
+      boolean featured
+    }
+
+    class Metric {
+      string label
+      string value
+      string detail
+    }
+
+    class TimelineItem {
+      string title
+      string description
+    }
+
+    class PortfolioSummary {
+      number totalProjects
+      number featuredCount
+      number categoryCount
+      string[] categories
+      number skillCount
+    }
+
+    PortfolioSummary --> Project
+    PortfolioSummary --> Metric
 ```
+
+## Quality Gates
+
+- `npm test` validates portfolio helper behavior and project data completeness.
+- `npm run check` validates expected files and README content.
+- `.github/workflows/app-quality.yml` runs app tests and validation on push/PR.
+- `.github/workflows/repository-health.yml` validates the professional repository layer.
 
 ## Extension Points
 
-- Add screenshots or demo GIFs for the most important workflow.
-- Add automated checks that match the stack.
-- Add environment documentation if external services are used.
-- Add test fixtures or sample data for repeatable demos.
-- Convert roadmap items into small, reviewable issues.
-
-## Engineering Review Notes
-
-A strong reviewer should be able to answer:
-
-1. What problem does this project solve?
-2. What is the main user workflow?
-3. Which files/layers own the core behavior?
-4. What tradeoffs are documented?
-5. What would be the next professional improvement?
+- Add GitHub Pages deployment.
+- Add project detail pages or modal case studies.
+- Add screenshots and preview GIFs.
+- Add downloadable resume section.
+- Add Playwright smoke tests for browser-level interactions.
